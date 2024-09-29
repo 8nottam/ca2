@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Em Yêu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+        }
+        .heart {
+            color: #ff69b4;
+            font-size: 50px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .balloon {
+            font-size: 30px;
+            margin: 0 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        #changeMessage {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #changeMessage:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .slideshow-container {
+            position: relative;
+            width: 30%;
+            max-width: 300px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        .slide:hover img {
+            transform: scale(1.1);
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 105, 180, 0.7);
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 20, 147, 0.9);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        #nextPageBtn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #nextPageBtn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .slide:hover .slide-caption {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc Mừng Sinh Nhật Em Yêu</h1>
+        <div class="balloon">🎈</div>
+        <div class="heart">❤️</div>
+        <div class="balloon">🎈</div>
+        <div id="birthdayMessage" class="message">
+            Em yêu, chúc mừng sinh nhật em! Anh rất vui vì được ở bên em trong ngày đặc biệt này. Cảm ơn em đã luôn ở bên anh, chia sẻ những khoảnh khắc hạnh phúc và vượt qua mọi khó khăn cùng nhau. Anh yêu em rất nhiều và mong rằng chúng ta sẽ cùng nhau đón nhiều sinh nhật hạnh phúc hơn nữa. Chúc em một ngày sinh nhật thật vui vẻ và tràn đầy niềm vui!
+        </div>
+        <button id="changeMessage">Đổi lời chúc</button>
+
+
+        <button id="nextPageBtn" onclick="window.location.href='https://birthday-cake-mu.vercel.app/?name=D%C6%B0%C6%A1ng%20Th%E1%BB%8B%20Ki%E1%BB%81u%20%C3%81nh&shared=true'">Thổi nến rồi ước 1 điều gì đó nào!</button>
+    </div>
+
+    <script>
+        const messages = [
+            "Em yêu, chúc mừng sinh nhật em! Anh rất vui vì được ở bên em trong ngày đặc biệt này. Cảm ơn em đã luôn ở bên anh, chia sẻ những khoảnh khắc hạnh phúc và vượt qua mọi khó khăn cùng nhau. Anh yêu em rất nhiều và mong rằng chúng ta sẽ cùng nhau đón nhiều sinh nhật hạnh phúc hơn nữa. Chúc em một ngày sinh nhật thật vui vẻ và tràn đầy niềm vui!",
+            "Sinh nhật vui vẻ, tình yêu của anh! Mỗi ngày bên em là một món quà tuyệt vời đối với anh. Cảm ơn em đã mang đến cho anh những niềm vui, tiếng cười và tình yêu. Anh mong rằng năm tới sẽ mang đến cho em nhiều điều tuyệt vời hơn nữa. Anh yêu em!",
+            "Chúc mừng sinh nhật người con gái anh yêu nhất! Em là ánh sáng trong cuộc đời anh, là nguồn động viên để anh trở nên tốt hơn mỗi ngày. Anh hy vọng rằng ngày hôm nay sẽ đặc biệt như em vậy. Hãy cùng nhau tạo nên những kỷ niệm tuyệt vời nhé!"
+        ];
+        let currentIndex = 0;
+        const messageElement = document.getElementById('birthdayMessage');
+        const changeButton = document.getElementById('changeMessage');
+
+        changeButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            messageElement.textContent = messages[currentIndex];
+        });
+
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(n) {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex - n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+
+        function autoChangeSlide() {
+            changeSlide(1);
+        }
+
+        setInterval(autoChangeSlide, 5000);
+    </script>
+</body>
+</html>
